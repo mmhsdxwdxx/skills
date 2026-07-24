@@ -482,26 +482,28 @@ class OfficialPDF:
             self.finish_page()
             self.y = TOP - BODY_SIZE
             self.warnings.append("Edition record moved to a new final side because remaining space was insufficient.")
-        last_y = BOTTOM
-        print_y = last_y + LINE
-        copy_y = print_y + LINE if copy_to else None
-        first_y = (copy_y + LINE * 0.35) if copy_y is not None else (print_y + LINE * 0.35)
+        lower_rule = BOTTOM
+        print_top = lower_rule + LINE
+        copy_top = lower_rule + 2 * LINE if copy_to else None
+        text_lift = 7.5
+        print_y = lower_rule + text_lift
+        copy_y = print_top + text_lift if copy_to else None
+
         self.canvas.setStrokeColor(BLACK)
+        self.canvas.setFillColor(BLACK)
         self.canvas.setLineWidth(1.0)
-        self.canvas.line(LEFT, first_y, RIGHT, first_y)
-        if copy_to:
-            self.canvas.setFont("CNBody", RECORD_SIZE)
-            self.canvas.setFillColor(BLACK)
+        self.canvas.line(LEFT, copy_top or print_top, RIGHT, copy_top or print_top)
+        self.canvas.setFont("CNBody", RECORD_SIZE)
+        if copy_to and copy_y is not None:
             self.canvas.drawString(LEFT + CELL, copy_y, "抄送：" + copy_to.rstrip("。") + "。")
             self.canvas.setLineWidth(0.7)
-            self.canvas.line(LEFT, print_y + LINE * 0.35, RIGHT, print_y + LINE * 0.35)
-        self.canvas.setFont("CNBody", RECORD_SIZE)
+            self.canvas.line(LEFT, print_top, RIGHT, print_top)
         self.canvas.drawString(LEFT + CELL, print_y, printing_authority)
         right_text = (printing_date + "印发") if printing_date and not printing_date.endswith("印发") else printing_date
-        right_w = pdfmetrics.stringWidth(right_text, "CNBody", RECORD_SIZE)
-        self.canvas.drawString(RIGHT - CELL - right_w, print_y, right_text)
+        right_width = pdfmetrics.stringWidth(right_text, "CNBody", RECORD_SIZE)
+        self.canvas.drawString(RIGHT - CELL - right_width, print_y, right_text)
         self.canvas.setLineWidth(1.0)
-        self.canvas.line(LEFT, last_y, RIGHT, last_y)
+        self.canvas.line(LEFT, lower_rule, RIGHT, lower_rule)
 
     def build(self) -> dict[str, Any]:
         self.draw_header()
@@ -531,24 +533,33 @@ class OfficialPDF:
 def render_pdf(pdf: Path, render_dir: Path, warnings: list[str]) -> list[str]:
     render_dir.mkdir(parents=True, exist_ok=True)
     prefix = render_dir / pdf.stem
-    executable = shutil.which("pdftoppm") or shutil.which("pdftoppm.exe")
-    rendered: list[str] = []
-    if executable:
-        subprocess.run([executable, "-png", "-r", "180", str(pdf), str(prefix)], check=True)
-        rendered = [str(p) for p in sorted(render_dir.glob(f"{pdf.stem}-*.png"))]
-    else:
+    bundled = Path(sys.executable).resolve().parent.parent / "native" / "poppler" / "Library" / "bin" / "pdftoppm.exe"
+    candidates = [str(bundled)] if bundled.is_file() else []
+    on_path = shutil.which("pdftoppm") or shutil.which("pdftoppm.exe")
+    if on_path and on_path not in candidates:
+        candidates.append(on_path)
+    for executable in candidates:
         try:
-            import fitz  # type: ignore
+            subprocess.run([executable, "-png", "-r", "180", str(pdf), str(prefix)], check=True)
+            rendered = [str(path) for path in sorted(render_dir.glob(f"{pdf.stem}-*.png"))]
+            if rendered:
+                return rendered
+        except (OSError, subprocess.CalledProcessError) as exc:
+            warnings.append(f"pdftoppm candidate failed ({executable}): {exc}")
+    try:
+        import fitz  # type: ignore
 
-            doc = fitz.open(pdf)
-            matrix = fitz.Matrix(2.5, 2.5)
-            for index, page in enumerate(doc, start=1):
-                path = render_dir / f"{pdf.stem}-{index}.png"
-                page.get_pixmap(matrix=matrix, alpha=False).save(path)
-                rendered.append(str(path))
-        except Exception as exc:
-            warnings.append(f"PDF rendering unavailable (pdftoppm/PyMuPDF): {exc}")
-    return rendered
+        document = fitz.open(pdf)
+        matrix = fitz.Matrix(2.5, 2.5)
+        rendered = []
+        for index, page in enumerate(document, start=1):
+            path = render_dir / f"{pdf.stem}-{index}.png"
+            page.get_pixmap(matrix=matrix, alpha=False).save(path)
+            rendered.append(str(path))
+        return rendered
+    except Exception as exc:
+        warnings.append(f"PDF rendering unavailable (pdftoppm/PyMuPDF): {exc}")
+        return []
 
 
 def main() -> int:
