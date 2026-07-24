@@ -32,4 +32,4 @@ npx skills@latest add mmhsdxwdxx/skills --skill create-cn-official-pdf
 
 ## 体系定位
 
-这是 `official` 分类下的基础渲染与验收能力。后续可在同一分类增设公文起草、合法性审核、政策解读与机关模板适配等技能，并保持触发边界互不重叠。
+这是 `official` 分类下的排版与验收能力，负责把已成稿的内容渲染为合规 PDF。内容起草（选文种、定方向、组织结构与措辞）由同分类的 `$draft-cn-official-document` 承担；两者通过 JSON 衔接，触发边界互不重叠（写 vs 排）。后续还可增设合法性审核、政策解读与机关模板适配等技能。

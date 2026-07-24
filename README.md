@@ -30,6 +30,7 @@ npx skills@latest add mmhsdxwdxx/skills --skill create-cn-official-pdf
 #### Model-invoked
 
 - **[create-cn-official-pdf](./skills/official/create-cn-official-pdf/SKILL.md)** — 按 GB/T 9704—2012 排版、生成和验收中国党政机关公文 PDF。
+- **[draft-cn-official-document](./skills/official/draft-cn-official-document/SKILL.md)** — 选文种、定方向、起草并预检公文内容，产出可移交渲染的 JSON。
 
 ## 体系约定
 
