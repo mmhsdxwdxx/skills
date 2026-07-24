@@ -1,0 +1,4 @@
+interface:
+  display_name: "中国党政机关公文 PDF"
+  short_description: "依据现行国标排版、生成并逐页验收中国党政机关公文 PDF"
+  default_prompt: "Use $create-cn-official-pdf to typeset and verify a standards-compliant Chinese Party and government official-document PDF."

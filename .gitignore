@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+node_modules/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+output/
+tmp/
+*.pdf
+*.p12
+*.pfx
+*.pem
+*.key
+*seal*
+*印章*

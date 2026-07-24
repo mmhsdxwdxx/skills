@@ -1,0 +1,23 @@
+{
+  "format": "general",
+  "issuing_authority": "某某市人民政府办公室",
+  "authority_mark": "某某市人民政府办公室文件",
+  "document_number": "某政办发〔2026〕1号",
+  "title": "某某市人民政府办公室关于进一步规范示例工作的通知",
+  "recipients": "各区人民政府，市政府各部门",
+  "body": [
+    {"type": "paragraph", "text": "为进一步规范有关工作，经市政府同意，现将有关事项通知如下。"},
+    {"type": "h1", "text": "一、总体要求"},
+    {"type": "paragraph", "text": "坚持依法依规、实事求是、精简高效，确保各项任务落实到位。"},
+    {"type": "h2", "text": "（一）明确工作责任"},
+    {"type": "paragraph", "text": "各单位应当结合职责分工，细化措施，明确完成时限。"}
+  ],
+  "attachments": ["示例工作任务清单"],
+  "signature": "某某市人民政府办公室",
+  "date": "2026年7月24日",
+  "note": "此件公开发布",
+  "copy_to": "市委有关部门，市人大常委会办公室，市政协办公室",
+  "printing_authority": "某某市人民政府办公室",
+  "printing_date": "2026年7月24日",
+  "seal_image": null
+}

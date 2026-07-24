@@ -1,0 +1,21 @@
+{
+  "name": "mmhsdxwdxx-skills",
+  "version": "0.1.0",
+  "description": "Personal agent skills for Chinese official documents, engineering, and productivity.",
+  "author": {
+    "name": "mmhsdxwdxx",
+    "url": "https://github.com/mmhsdxwdxx"
+  },
+  "repository": "https://github.com/mmhsdxwdxx/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "codex",
+    "official-documents",
+    "pdf",
+    "productivity"
+  ],
+  "skills": [
+    "./skills/official/create-cn-official-pdf"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "mmhsdxwdxx",
+  "owner": {
+    "name": "mmhsdxwdxx",
+    "url": "https://github.com/mmhsdxwdxx"
+  },
+  "description": "mmhsdxwdxx's personal Agent Skills collection.",
+  "plugins": [
+    {
+      "name": "mmhsdxwdxx-skills",
+      "source": "./",
+      "description": "Personal agent skills for Chinese official documents, engineering, and productivity.",
+      "category": "productivity",
+      "keywords": [
+        "skills",
+        "codex",
+        "official-documents",
+        "pdf"
+      ]
+    }
+  ]
+}
