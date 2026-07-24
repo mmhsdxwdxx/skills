@@ -5,13 +5,12 @@ description: Create, typeset, inspect, or correct Chinese Party and government o
 
 # Create Chinese Official-Document PDFs
 
-Produce a print-ready PDF that meets the national format baseline—not text that merely resembles a government document. Treat GB/T 9704—2012 as the national baseline, and treat any superior rule, issuing-authority template, or supplied red-head/seal asset as an explicit override recorded before generation.
+Produce a print-ready PDF that meets the national format baseline—not text that merely resembles a government document. Treat GB/T 9704—2012 as the national baseline, and treat any superior rule, issuing-authority template, or supplied red-head/seal asset as an explicit override recorded before generation. For choosing the document type, drafting content, or reviewing wording, use `$draft-cn-official-document`; this skill typesets and verifies the format.
 
 ## Mandatory source loading
 
 1. Read [references/format-standard.md](references/format-standard.md) in full before typesetting or auditing.
-2. Read [references/document-types-and-writing.md](references/document-types-and-writing.md) when choosing a document type, drafting content, or reviewing wording.
-3. When the user supplies an agency template or local rule, inspect it and record every deviation from the national baseline before generation.
+2. When the user supplies an agency template or local rule, inspect it and record every deviation from the national baseline before generation.
 
 ## Workflow
 

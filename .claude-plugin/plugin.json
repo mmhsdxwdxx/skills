@@ -16,6 +16,7 @@
     "productivity"
   ],
   "skills": [
-    "./skills/official/create-cn-official-pdf"
+    "./skills/official/create-cn-official-pdf",
+    "./skills/official/draft-cn-official-document"
   ]
 }

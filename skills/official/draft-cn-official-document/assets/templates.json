@@ -1,0 +1,141 @@
+{
+  "通知_general": {
+    "format": "general",
+    "issuing_authority": "某某市人民政府办公室",
+    "authority_mark": "某某市人民政府办公室文件",
+    "document_number": "某政办发〔2026〕1号",
+    "title": "某某市人民政府办公室关于……的通知",
+    "recipients": "各区人民政府，市政府各部门：",
+    "body": [
+      {"type": "paragraph", "text": "……（通知缘由）。经……同意，现将有关事项通知如下。"},
+      {"type": "h1", "text": "一、总体要求"},
+      {"type": "paragraph", "text": "……。"},
+      {"type": "h2", "text": "（一）……"},
+      {"type": "paragraph", "text": "……。"}
+    ],
+    "attachments": [],
+    "signature": "某某市人民政府办公室",
+    "date": "2026年7月24日",
+    "note": "此件公开发布",
+    "copy_to": "",
+    "printing_authority": "某某市人民政府办公室",
+    "printing_date": "2026年7月24日",
+    "seal_image": null,
+    "drafting_notes": "通知用于发布或转发文件、布置工作、传达事项。行文方向多为下行或平行。"
+  },
+  "请示_upward": {
+    "format": "upward",
+    "issuing_authority": "某某局",
+    "authority_mark": "某某局文件",
+    "document_number": "某×〔2026〕1号",
+    "signers": ["张三"],
+    "title": "某某局关于……的请示",
+    "recipients": "某某市人民政府：",
+    "body": [
+      {"type": "paragraph", "text": "为了……（请示缘由），……。"},
+      {"type": "h1", "text": "一、……"},
+      {"type": "paragraph", "text": "……。"},
+      {"type": "paragraph", "text": "妥否，请批示。"}
+    ],
+    "attachments": [],
+    "signature": "某某局",
+    "date": "2026年7月24日",
+    "note": "",
+    "copy_to": "",
+    "printing_authority": "某某局办公室",
+    "printing_date": "2026年7月24日",
+    "seal_image": null,
+    "drafting_notes": "请示用于向上级请求指示或批准。一文一事，一个主送机关，结尾常用‘妥否，请批示’。signers 必填。"
+  },
+  "报告_upward": {
+    "format": "upward",
+    "issuing_authority": "某某局",
+    "authority_mark": "某某局文件",
+    "document_number": "某×〔2026〕2号",
+    "signers": ["李四"],
+    "title": "某某局关于……的报告",
+    "recipients": "某某市人民政府：",
+    "body": [
+      {"type": "paragraph", "text": "根据……要求，现将……情况报告如下。"},
+      {"type": "h1", "text": "一、……"},
+      {"type": "paragraph", "text": "……。"},
+      {"type": "paragraph", "text": "特此报告。"}
+    ],
+    "attachments": [],
+    "signature": "某某局",
+    "date": "2026年7月24日",
+    "note": "",
+    "copy_to": "",
+    "printing_authority": "某某局办公室",
+    "printing_date": "2026年7月24日",
+    "seal_image": null,
+    "drafting_notes": "报告用于汇报工作或情况、答复询问。不得夹带请示事项；结尾用‘特此报告’，不用‘请批示’。signers 必填。"
+  },
+  "函_letter": {
+    "format": "letter",
+    "issuing_authority": "某某局",
+    "authority_mark": "某某局",
+    "document_number": "某×函〔2026〕1号",
+    "title": "关于……的函",
+    "recipients": "某某厅：",
+    "body": [
+      {"type": "paragraph", "text": "……（商洽/询问/答复/请求批准的事由）。"},
+      {"type": "paragraph", "text": "……。"},
+      {"type": "paragraph", "text": "请予函复为盼。"}
+    ],
+    "attachments": [],
+    "signature": "某某局",
+    "date": "2026年7月24日",
+    "note": "",
+    "copy_to": "",
+    "printing_authority": "",
+    "printing_date": "",
+    "seal_image": null,
+    "drafting_notes": "函用于不相隶属机关之间商洽工作、询问答复、请求批准。信函格式版式，首页无页码，版记仅含抄送。"
+  },
+  "纪要_minutes": {
+    "format": "minutes",
+    "issuing_authority": "某某市人民政府",
+    "authority_mark": "某某市人民政府纪要",
+    "document_number": "〔2026〕第×号",
+    "title": "",
+    "recipients": "",
+    "body": [
+      {"type": "paragraph", "text": "×年×月×日，……（会议名称）在……召开，……（主持人）主持。会议研究了……。"},
+      {"type": "h1", "text": "一、……"},
+      {"type": "paragraph", "text": "……。"}
+    ],
+    "attachments": [],
+    "signature": "",
+    "date": "",
+    "note": "",
+    "copy_to": "",
+    "printing_authority": "",
+    "printing_date": "",
+    "seal_image": null,
+    "drafting_notes": "纪要用于记载会议主要情况和议定事项。纪要格式版式，authority_mark 以‘纪要’结尾；通常无主送、无落款日期。"
+  },
+  "批复_general": {
+    "format": "general",
+    "issuing_authority": "某某市人民政府",
+    "authority_mark": "某某市人民政府文件",
+    "document_number": "某政函〔2026〕1号",
+    "title": "某某市人民政府关于……的批复",
+    "recipients": "某某局：",
+    "body": [
+      {"type": "paragraph", "text": "你局《关于……的请示》（某×〔2026〕×号）收悉。经研究，现批复如下："},
+      {"type": "h1", "text": "一、……"},
+      {"type": "paragraph", "text": "……。"},
+      {"type": "paragraph", "text": "此复。"}
+    ],
+    "attachments": [],
+    "signature": "某某市人民政府",
+    "date": "2026年7月24日",
+    "note": "",
+    "copy_to": "",
+    "printing_authority": "某某市人民政府办公室",
+    "printing_date": "2026年7月24日",
+    "seal_image": null,
+    "drafting_notes": "批复用于答复下级的请示。须引述来文标题与文号，结尾用‘此复’。"
+  }
+}

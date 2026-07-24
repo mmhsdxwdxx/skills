@@ -1,0 +1,4 @@
+interface:
+  display_name: "中国党政机关公文起草"
+  short_description: "选文种、定方向、组织结构、把控措辞，产出可移交渲染的公文 JSON"
+  default_prompt: "Use $draft-cn-official-document to draft and preflight the content of a Chinese official document."
