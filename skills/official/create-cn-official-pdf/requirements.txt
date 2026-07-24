@@ -1,0 +1,6 @@
+# Runtime dependencies for create-cn-official-pdf.
+# Install from the skill directory:  pip install -r requirements.txt
+reportlab>=4.0
+pypdf>=4.0
+# Optional: enables PNG rendering when poppler (pdftoppm) is unavailable.
+PyMuPDF>=1.24
